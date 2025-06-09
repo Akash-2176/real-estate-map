@@ -13,8 +13,16 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import L from 'leaflet'
+
+delete L.Icon.Default.prototype._getIconUrl
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: '../../public/leaflet/marker-icon-2x.png',
+  iconUrl: '.../../public/leaflet/marker-icon.png',
+  shadowUrl: '../../public/leaflet/marker-shadow.png',
+})
 
 let map = null
 const hospitalMarkers = ref([])
