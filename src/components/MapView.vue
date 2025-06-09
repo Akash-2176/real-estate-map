@@ -15,13 +15,16 @@
 import { ref, onMounted } from 'vue'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import markerIcon2x from '@/assets/leaflet/marker-icon-2x.png'
+import markerIcon from '@/assets/leaflet/marker-icon.png'
+import markerShadow from '@/assets/leaflet/marker-shadow.png'
+
 
 delete L.Icon.Default.prototype._getIconUrl
-
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: '../../public/leaflet/marker-icon-2x.png',
-  iconUrl: '.../../public/leaflet/marker-icon.png',
-  shadowUrl: '../../public/leaflet/marker-shadow.png',
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
 })
 
 let map = null
